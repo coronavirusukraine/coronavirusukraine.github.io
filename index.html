@@ -1,9 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>coronavirus ukraine statistic</title>
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>Статистика ситуации с коронавирусом в Украине</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-<h1>coronavirus ukraine statistic</h1>
+    <div class="wrapper">
+        <header>
+            <h1>Статистика ситуации с коронавирусом в Украине</h1>
+            <p>
+                Ситуация с коронавирусом в Украине динамически меняется каждый день. Здесь можно увидеть
+                всю динамику заражения по Украине в разрезе областей и по стране в целом.
+            </p>
+        </header>
+        <div class="wrapper-content">
+            <div class="content">
+                <h2>Карта распространения коронавируса в Украине</h2>
+                <div id="map"></div>
+            </div>
+        </div>
+        <footer>
+
+        </footer>
+    </div>
+    <script src="script.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB00b39uhJ2MIK3oW8Ku_28x36_5OlaLQ&callback=initMap">
+    </script>
 </body>
 </html>
