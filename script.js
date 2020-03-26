@@ -126,25 +126,31 @@ var data = {
             "lat": 50.436616,
             "lng": 30.684678
         }
-    },
-    "confirmed": {
-        "1": {
-            "c": 1,
-            "d": 1,
-            "r": 1
-        }
     }
 };
 function getIcon(n) {
-    var _color = '#fff';
+    var _color = '#FF99CC';
     var _scale = 12;
+    if (n >= 100 && n <1000) {
+        _color = '#FF0099';
+        _scale = 17;
+    } else if (n >= 1000 && n < 10000) {
+        _color = '#CC0066';
+        _scale = 22;
+    } else if (n >= 10000 && n < 100000) {
+        _color = '#990033';
+        _scale = 27;
+    } else if (n >= 100000){
+        _color = '#660033';
+        _scale = 35;
+    }
     return {
         path: google.maps.SymbolPath.CIRCLE,
         fillOpacity: 1,
         fillColor: _color,
         strokeOpacity: 1,
         strokeWeight: 2,
-        strokeColor: '#333',
+        strokeColor: '#fff',
         scale: _scale
     };
 }
@@ -156,7 +162,7 @@ function getMarker(map, position, title, n) {
         title: title,
         icon: getIcon(n),
         label: {
-            color: '#666',
+            color: '#FFFF99',
             fontSize: '11pt',
             fontWeight: '100',
             text: n.toString()
@@ -165,7 +171,7 @@ function getMarker(map, position, title, n) {
 }
 
 function getData(callback) {
-    let url = 'https://coronavirusukraine.github.io/data_test.json';
+    let url = 'https://coronavirusukraine.github.io/data_map.json';
     let data;
 
     fetch(url)
@@ -176,6 +182,10 @@ function getData(callback) {
     .catch(err => { throw err });
 }
 
+function getTitle(item, area) {
+    return area.name;
+}
+
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 6,
@@ -183,9 +193,12 @@ function initMap() {
       gestureHandling: 'cooperative'
     });
     // var mark = getMarker(map, new google.maps.LatLng(49.393632, 31.856577), 'title', 10);
-    getData((data) => {console.log(data.test)});
-    for(var index in data.area) { 
-        var item = data.area[index]; 
-        getMarker(map, new google.maps.LatLng(item.lat, item.lng), 'title', index);
-    }
+    getData((data_map) => {
+        for(var index in data_map.confirmed) { 
+            var item = data_map.confirmed[index];
+            var area = data.area[index]; 
+            getMarker(map, new google.maps.LatLng(area.lat, area.lng), getTitle(item, area), item.c);
+        }    
+    });
+    
   }
