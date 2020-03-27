@@ -192,13 +192,23 @@ function initMap() {
       center: zero,
       gestureHandling: 'cooperative'
     });
-    // var mark = getMarker(map, new google.maps.LatLng(49.393632, 31.856577), 'title', 10);
+    
     getData((data_map) => {
+        var total = {
+            c: 0, d: 0, r: 0
+        };
         for(var index in data_map.confirmed) { 
             var item = data_map.confirmed[index];
-            var area = data.area[index]; 
+            var area = data.area[index];
+            total.c = total.c + item.c; 
+            total.d = total.d + item.d; 
+            total.r = total.r + item.r; 
             getMarker(map, new google.maps.LatLng(area.lat, area.lng), getTitle(item, area), item.c);
         }    
+        document.getElementById('total-data-c').innerHTML = total.c;
+        document.getElementById('total-data-d').innerHTML = total.d;
+        document.getElementById('total-data-r').innerHTML = total.r;
+        document.getElementById('current-date').innerHTML = data_map.date;
     });
     
   }
