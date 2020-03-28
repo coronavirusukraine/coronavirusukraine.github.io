@@ -52,3 +52,28 @@ header h1 {
     min-height: 300px;
     height: 30em;
 }
+
+.total-text {
+    font-weight: bold;    
+}
+
+#total-data-c {
+    color: red;
+}
+
+#total-data-r {
+    color: blue;
+}
+
+#table {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 0.9em;
+}
+
+
+footer {
+    min-height: 7em;
+    background-color: #555;
+    margin-top: 1.5em;
+}

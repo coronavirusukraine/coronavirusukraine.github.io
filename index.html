@@ -26,20 +26,24 @@
                     по данным сайта <a href="https://moz.gov.ua/article/news/operativna-informacija-pro-poshirennja-koronavirusnoi-infekcii-2019-ncov-">МОЗ</a>
                 </div>
                 <ul id="total-data">
-                    <li>Заболевших - <span id="total-data-c">0</span></li>
-                    <li>Умерших - <span id="total-data-d">0</span></li>
-                    <li>Выздоравших - <span id="total-data-r">0</span></li>
+                    <li>Заболевших - <span class="total-text" id="total-data-c">0</span></li>
+                    <li>Умерших - <span class="total-text" id="total-data-d">0</span></li>
+                    <li>Выздоровевших - <span class="total-text" id="total-data-r">0</span></li>
                 </ul>
             </div>
             <div class="content">
                 <h2>Карта распространения коронавируса в Украине</h2>
                 <div id="map"></div>
             </div>
+            <div class="content">
+                <h2>Распространение коронавируса по областям</h2>
+                <div id="table"></div>
+            </div>
         </div>
-        <footer>
-
-        </footer>
     </div>
+    <footer>
+
+    </footer>
     <script src="script.js"></script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB00b39uhJ2MIK3oW8Ku_28x36_5OlaLQ&callback=initMap">

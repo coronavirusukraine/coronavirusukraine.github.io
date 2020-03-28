@@ -29,11 +29,11 @@ var data = {
         "6": {
             "name": "Закарпатская область",
             "lat": 48.495127,
-            "lng": 22.392596
+            "lng": 22.792596
         },
         "7": {
             "name": "Запорожская область",
-            "lat": 47.721217,
+            "lat": 47.121217,
             "lng": 35.357896
         },
         "8": {
@@ -43,7 +43,7 @@ var data = {
         },
         "9": {
             "name": "Киевская область",
-            "lat": 49.685755,
+            "lat": 49.485755,
             "lng": 30.677721
         },
         "10": {
@@ -63,13 +63,13 @@ var data = {
         },
         "13": {
             "name": "Николаевская область",
-            "lat": 47.051784,
+            "lat": 47.351784,
             "lng": 31.413805
         },
         "14": {
             "name": "Одесская область",
             "lat": 46.819232,
-            "lng": 30.655748
+            "lng": 29.855748
         },
         "15": {
             "name": "Полтавская область",
@@ -88,7 +88,7 @@ var data = {
         },
         "18": {
             "name": "Тернопольская область",
-            "lat": 49.379152,
+            "lat": 49.679152,
             "lng": 25.415270
         },
         "19": {
@@ -130,41 +130,49 @@ var data = {
 };
 function getIcon(n) {
     var _color = '#FF99CC';
-    var _scale = 12;
+    var _scale = 12*1.4;
+    var _colorText = '#184e0a';
     if (n >= 100 && n <1000) {
         _color = '#FF0099';
-        _scale = 17;
+        _scale = 17*1.4;
+        _colorText = '#FFFF99';
     } else if (n >= 1000 && n < 10000) {
         _color = '#CC0066';
-        _scale = 22;
+        _scale = 22*1.4;
+        _colorText = '#FFFF99';
     } else if (n >= 10000 && n < 100000) {
         _color = '#990033';
-        _scale = 27;
+        _scale = 27*1.4;
+        _colorText = '#FFFF99';
     } else if (n >= 100000){
         _color = '#660033';
-        _scale = 35;
+        _scale = 35*1.2;
+        _colorText = '#FFFF99';
     }
     return {
-        path: google.maps.SymbolPath.CIRCLE,
-        fillOpacity: 1,
-        fillColor: _color,
-        strokeOpacity: 1,
-        strokeWeight: 2,
-        strokeColor: '#fff',
-        scale: _scale
+        "icon": {
+            path: google.maps.SymbolPath.CIRCLE,
+            fillOpacity: 1,
+            fillColor: _color,
+            strokeOpacity: 1,
+            strokeWeight: 2,
+            strokeColor: '#fff',
+            scale: _scale
+        },
+        "colorText": _colorText
     };
 }
 
 function getMarker(map, position, title, n) {
+    var icon = getIcon(n);
     return new google.maps.Marker({
         map: map,
         position: position,
         title: title,
-        icon: getIcon(n),
+        icon: icon.icon,
         label: {
-            color: '#FFFF99',
-            fontSize: '11pt',
-            fontWeight: '100',
+            color: icon.colorText,
+            fontSize: '12pt',
             text: n.toString()
         }
     });
@@ -183,7 +191,21 @@ function getData(callback) {
 }
 
 function getTitle(item, area) {
-    return area.name;
+    return area.name + 
+        '\n Заболевших - ' + item.c + 
+        '\n Умерших - ' + item.d + 
+        '\n Выздоровевших - ' + item.r;
+}
+
+function getTableRow(item, area) {
+    return  '<tr><td>' + area.name + 
+            '</td><td align="right">' + item.c + 
+            '</td><td align="right">' + item.d + 
+            '</td><td align="right">' + item.r + '</td></tr>';
+}
+
+function getTableTitle() {
+    return '<tr style="font-size: 0.9em; background-color: #eee; text-align: center"><td>Область</td><td width="45">Заб</td><td width="45">Ум</td><td width="45">Выз</td></tr>';
 }
 
 function initMap() {
@@ -197,6 +219,7 @@ function initMap() {
         var total = {
             c: 0, d: 0, r: 0
         };
+        var table = "";
         for(var index in data_map.confirmed) { 
             var item = data_map.confirmed[index];
             var area = data.area[index];
@@ -204,11 +227,13 @@ function initMap() {
             total.d = total.d + item.d; 
             total.r = total.r + item.r; 
             getMarker(map, new google.maps.LatLng(area.lat, area.lng), getTitle(item, area), item.c);
+            table += getTableRow(item, area);
         }    
         document.getElementById('total-data-c').innerHTML = total.c;
         document.getElementById('total-data-d').innerHTML = total.d;
         document.getElementById('total-data-r').innerHTML = total.r;
         document.getElementById('current-date').innerHTML = data_map.date;
+        document.getElementById('table').innerHTML = '<table width="100%">' + getTableTitle() + table + '</table>';
     });
     
   }
