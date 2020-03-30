@@ -216,22 +216,16 @@ function initMap() {
     });
     
     getData((data_map) => {
-        var total = {
-            c: 0, d: 0, r: 0
-        };
         var table = "";
         for(var index in data_map.confirmed) { 
             var item = data_map.confirmed[index];
             var area = data.area[index];
-            total.c = total.c + item.c; 
-            total.d = total.d + item.d; 
-            total.r = total.r + item.r; 
             getMarker(map, new google.maps.LatLng(area.lat, area.lng), getTitle(item, area), item.c);
             table += getTableRow(item, area);
         }    
-        document.getElementById('total-data-c').innerHTML = total.c;
-        document.getElementById('total-data-d').innerHTML = total.d;
-        document.getElementById('total-data-r').innerHTML = total.r;
+        document.getElementById('total-data-c').innerHTML = data_map.total.c;
+        document.getElementById('total-data-d').innerHTML = data_map.total.d;
+        document.getElementById('total-data-r').innerHTML = data_map.total.r;
         document.getElementById('current-date').innerHTML = data_map.date;
         document.getElementById('table').innerHTML = '<table width="100%">' + getTableTitle() + table + '</table>';
     });
