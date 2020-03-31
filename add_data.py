@@ -2,9 +2,9 @@ import argparse
 import json
 
 def getAction():
-	__parser = argparse.ArgumentParser(description='''add day data''')
-	__parser.add_argument('--data', type=str, action='store', dest='data', help='data', required=True)
-	__parser.add_argument('--data_add', type=str, action='store', dest='data_add', help='data add', required=True)
+	__parser = argparse.ArgumentParser(description='''add day data to total data''')
+	__parser.add_argument('--data', type=str, action='store', dest='data', help='total data filename', required=True)
+	__parser.add_argument('--data_add', type=str, action='store', dest='data_add', help='data add filename', required=True)
 	return __parser.parse_args()
 
 def getData(file):
