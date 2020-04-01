@@ -199,13 +199,11 @@ function getTitle(item, area) {
 
 function getTableRow(item, area) {
     return  '<tr><td>' + area.name + 
-            '</td><td align="right">' + item.c + 
-            '</td><td align="right">' + item.d + 
-            '</td><td align="right">' + item.r + '</td></tr>';
+            '</td><td align="right">' + item.c + '</td></tr>';
 }
 
 function getTableTitle() {
-    return '<tr style="font-size: 0.9em; background-color: #eee; text-align: center"><td>Область</td><td width="45">Заб</td><td width="45">Ум</td><td width="45">Выз</td></tr>';
+    return '<tr class="table-title"><td>Область</td><td width="100">Заболевших</td></tr>';
 }
 
 function initMap() {
