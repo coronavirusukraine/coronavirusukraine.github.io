@@ -25,8 +25,8 @@ def checkSum(data):
 			error = True
 	error = False
 	check('c')
-	check('d')
-	check('r')
+	# check('d')
+	# check('r')
 	if error: exit()
 
 def update(data, dataAdd):
