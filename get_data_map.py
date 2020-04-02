@@ -47,7 +47,7 @@ def getHtml(url):
 	return req.status_code, req.text
 
 def getData(html):
-	result = [(x[0].strip(),x[1]) for x in re.findall(r'<p>▪(.+)&mdash;\s?(\d+).+випад.+</p>', html)]
+	result = [(x[0].strip(),x[1]) for x in re.findall(r'▪️(.+)&mdash;[^\d]*(\d+)', html)]
 	return result
 
 def getDataJson(data, arg):

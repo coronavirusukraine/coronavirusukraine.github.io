@@ -1,4 +1,6 @@
-var zero = {lat: 49.0, lng: 31.0};//49.429195, 31.688463
+var zero = {lat: 49.0, lng: 31.0};
+var url_map = 'https://coronavirusukraine.github.io/data_map.json';
+var url_graph = 'https://coronavirusukraine.github.io/data_graph.json';
 var data = {
     "area": {
         "1": {
@@ -178,8 +180,7 @@ function getMarker(map, position, title, n) {
     });
 }
 
-function getData(callback) {
-    let url = 'https://coronavirusukraine.github.io/data_map.json';
+function getData(url, callback) {
     let data;
 
     fetch(url)
@@ -213,7 +214,7 @@ function initMap() {
       gestureHandling: 'cooperative'
     });
     
-    getData((data_map) => {
+    getData(url_map, (data_map) => {
         var table = "";
         for(var index in data_map.confirmed) { 
             var item = data_map.confirmed[index];
@@ -228,4 +229,76 @@ function initMap() {
         document.getElementById('table').innerHTML = '<table width="100%">' + getTableTitle() + table + '</table>';
     });
     
-  }
+}
+
+function getDataGraph(data_graph) {
+    let data = {
+        "c": [],
+        "d": [],
+        "r": [],
+        "xAxes": []
+    }
+    data_graph.forEach((el)=>{
+        data.xAxes.push(el.date.replace(' 10:00', ''));
+        data.c.push(el.total.c - el.total.d - el.total.r);
+        data.d.push(el.total.d);
+        data.r.push(el.total.r);
+    });
+
+    return data;
+}
+
+function getDatasetGraph(data, label, backgroundColor, borderColor, fill=false) {
+    return {
+        label: label,
+        data: data,
+        fill: fill,
+        pointRadius: 2,
+        pointHoverRadius: 4,
+        backgroundColor: backgroundColor,
+        borderColor: borderColor,
+        borderWidth: 2
+    }
+}
+
+function initGrahp() {
+    getData(url_graph, (data_graph) => {
+        let data = getDataGraph(data_graph);
+        var ctx = document.getElementById('chartTotal').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data.xAxes,
+                datasets: [
+                getDatasetGraph(data.c, 'Заразившихся', 'rgba(255, 99, 132)', 'rgba(255, 99, 132)'),
+                getDatasetGraph(data.d, 'Умерших', '#3f2419', '#3f2419'),
+                getDatasetGraph(data.r, 'Выздоровевших', '#3875ff', '#3875ff'),
+                ]
+            },
+            options: {
+                responsive: true,
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                scales: {
+                    xAxes: [{
+                        display: false,
+                        stacked: true
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        stacked: true
+                    }]
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        });
+    });
+}
+
+initGrahp();
