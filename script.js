@@ -193,9 +193,7 @@ function getData(url, callback) {
 
 function getTitle(item, area) {
     return area.name + 
-        '\n Заболевших - ' + item.c + 
-        '\n Умерших - ' + item.d + 
-        '\n Выздоровевших - ' + item.r;
+        '\n Заболевших - ' + item.c;
 }
 
 function getTableRow(item, area) {
