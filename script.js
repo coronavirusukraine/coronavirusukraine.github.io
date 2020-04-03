@@ -259,43 +259,88 @@ function getDatasetGraph(data, label, backgroundColor, borderColor, fill=false) 
     }
 }
 
+function graphTotal(data) {
+    var ctx = document.getElementById('chartTotal').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: data.xAxes,
+            datasets: [
+            getDatasetGraph(data.c, 'Заразившихся', 'rgba(255, 99, 132)', 'rgba(255, 99, 132)'),
+            getDatasetGraph(data.d, 'Умерших', '#3f2419', '#3f2419'),
+            getDatasetGraph(data.r, 'Выздоровевших', '#3875ff', '#3875ff'),
+            ]
+        },
+        options: {
+            responsive: true,
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            scales: {
+                xAxes: [{
+                    display: false,
+                    stacked: true
+                }],
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    stacked: true
+                }]
+            },
+            legend: {
+                position: 'bottom'
+            }
+        }
+    });
+}
+
+function graphDyn(data) {
+    var ctx = document.getElementById('chartDyn').getContext('2d');
+    var curValue = 0;
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: data.xAxes,
+            datasets: [
+            getDatasetGraph(data.c.map((item, i, arr) => {
+                var res = item - curValue;
+                curValue = item;
+                return res;
+            }), 'Пророст заразившихся ', 'rgba(255, 99, 132, 0.2)', 'rgba(255, 99, 132)', true)
+            ]
+        },
+        options: {
+            responsive: true,
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            scales: {
+                xAxes: [{
+                    display: false,
+                    stacked: true
+                }],
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    stacked: true
+                }]
+            },
+            legend: {
+                position: 'bottom'
+            }
+        }
+    });
+}
+
 function initGrahp() {
     getData(url_graph, (data_graph) => {
         let data = getDataGraph(data_graph);
-        var ctx = document.getElementById('chartTotal').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: data.xAxes,
-                datasets: [
-                getDatasetGraph(data.c, 'Заразившихся', 'rgba(255, 99, 132)', 'rgba(255, 99, 132)'),
-                getDatasetGraph(data.d, 'Умерших', '#3f2419', '#3f2419'),
-                getDatasetGraph(data.r, 'Выздоровевших', '#3875ff', '#3875ff'),
-                ]
-            },
-            options: {
-                responsive: true,
-                tooltips: {
-                    mode: 'index',
-                    intersect: false,
-                },
-                scales: {
-                    xAxes: [{
-                        display: false,
-                        stacked: true
-                    }],
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        },
-                        stacked: true
-                    }]
-                },
-                legend: {
-                    position: 'bottom'
-                }
-            }
-        });
+        graphTotal(data);
+        graphDyn(data);
     });
 }
 
