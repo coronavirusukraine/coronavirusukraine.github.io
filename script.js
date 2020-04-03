@@ -308,7 +308,7 @@ function graphDyn(data) {
                 var res = item - curValue;
                 curValue = item;
                 return res;
-            }), 'Пророст заразившихся ', 'rgba(255, 99, 132, 0.2)', 'rgba(255, 99, 132)', true)
+            }), 'Прирост заразившихся ', 'rgba(255, 99, 132, 0.2)', 'rgba(255, 99, 132)', true)
             ]
         },
         options: {
