@@ -338,7 +338,7 @@ function graphDyn(data) {
                     ticks: {
                         beginAtZero: true
                     },
-                    stacked: true
+                    stacked: false
                 }]
             },
             legend: {
