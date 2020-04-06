@@ -320,7 +320,7 @@ function graphDyn(data) {
                 var res = item - curValueR;
                 curValueR = item;
                 return res;
-            }), 'Прирост выздоровевших ', 'rgba(31, 39, 72, 0.3)', 'rgba(31, 39, 72)', true)
+            }), 'Прирост выздоровевших ', 'rgba(56, 117, 255, 0.3)', 'rgba(56, 117, 255)', true)
             ]
         },
         options: {
