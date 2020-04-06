@@ -298,17 +298,29 @@ function graphTotal(data) {
 
 function graphDyn(data) {
     var ctx = document.getElementById('chartDyn').getContext('2d');
-    var curValue = 0;
+    var curValueC = 0;
+    var curValueD = 0;
+    var curValueR = 0;
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: data.xAxes,
             datasets: [
             getDatasetGraph(data.c.map((item, i, arr) => {
-                var res = item - curValue;
-                curValue = item;
+                var res = item - curValueC;
+                curValueC = item;
                 return res;
-            }), 'Прирост заразившихся ', 'rgba(255, 99, 132, 0.2)', 'rgba(255, 99, 132)', true)
+            }), 'Прирост заразившихся ', 'rgba(255, 99, 132, 0.1)', 'rgba(255, 99, 132)', true),
+             getDatasetGraph(data.d.map((item, i, arr) => {
+                var res = item - curValueD;
+                curValueD = item;
+                return res;
+            }), 'Прирост заразившихся ', 'rgba(66, 66, 66, 0.2)', 'rgba(66, 66, 66)', true),
+             getDatasetGraph(data.r.map((item, i, arr) => {
+                var res = item - curValueR;
+                curValueR = item;
+                return res;
+            }), 'Прирост заразившихся ', 'rgba(31, 39, 72, 0.3)', 'rgba(31, 39, 72)', true)
             ]
         },
         options: {
