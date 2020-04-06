@@ -315,12 +315,12 @@ function graphDyn(data) {
                 var res = item - curValueD;
                 curValueD = item;
                 return res;
-            }), 'Прирост заразившихся ', 'rgba(66, 66, 66, 0.2)', 'rgba(66, 66, 66)', true),
+            }), 'Прирост умерших ', 'rgba(66, 66, 66, 0.2)', 'rgba(66, 66, 66)', true),
              getDatasetGraph(data.r.map((item, i, arr) => {
                 var res = item - curValueR;
                 curValueR = item;
                 return res;
-            }), 'Прирост заразившихся ', 'rgba(31, 39, 72, 0.3)', 'rgba(31, 39, 72)', true)
+            }), 'Прирост выздоровевших ', 'rgba(31, 39, 72, 0.3)', 'rgba(31, 39, 72)', true)
             ]
         },
         options: {
