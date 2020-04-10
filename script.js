@@ -35,7 +35,7 @@ var config = {
                 ticks: {
                     beginAtZero: true
                 },
-                stacked: true
+                stacked: false
             }]
         },
     }
