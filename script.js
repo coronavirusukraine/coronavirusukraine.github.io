@@ -232,6 +232,7 @@ function initMap() {
 function getDataGraph(data_graph) {
     let data = {
         "c": [],
+        "cSum": [],
         "d": [],
         "r": [],
         "xAxes": []
