@@ -1,3 +1,7 @@
+html {
+    background-color: lavender;
+}
+
 body {
     width: 100%;
     height: 100%;
@@ -5,6 +9,7 @@ body {
     padding: 0;
     font-size: 14pt;
     font-family: Arial, Helvetica, sans-serif;
+    color: DARKBLUE;
 }
 
 a {
@@ -29,11 +34,12 @@ header h1 {
     font-size: 1.8em;
     text-align: center;
     margin: 3em 0;
+    color: DODGERBLUE;
 }
 
 .content h2 {
     font-size: 1.3em;
-    color: #666;
+    color: ROYALBLUE;
     text-align: center;
 }
 
@@ -66,7 +72,7 @@ header h1 {
 }
 
 #table {
-    width: 50%;
+    max-width: 600px;
     margin: 0 auto;
     font-size: 0.9em;
 }
@@ -126,4 +132,43 @@ footer {
     min-height: 7em;
     background-color: #555;
     margin-top: 1.5em;
+}
+
+@media screen and (max-width: 750px) {
+    .blog-date {
+        font-size: 0.8em;
+        width: 6.5em;
+        padding: 0.4em 0.2em;
+    }
+
+    .blog-content {
+        padding: 0.5em 0.2em 0.5em 0.2em;
+        font-size: 1em;
+    }
+    .area-charts-canvas {
+        width: 55%;
+    }
+    
+    .area-charts-select {
+        width: 45%;
+        font-size: 90%;
+        padding-left: 0.5em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .blog-date {
+        font-size: 0.8em;
+        width: 6.5em;
+        padding: 0.4em 0.2em;
+    }
+
+    .area-charts-canvas {
+        width: 50%;
+    }
+    
+    .area-charts-select {
+        width: 50%;
+        font-size: 70%;
+    }
 }

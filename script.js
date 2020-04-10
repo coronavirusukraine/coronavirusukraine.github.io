@@ -43,151 +43,151 @@ var config = {
 var data = {
     "area": {
         "1": {
-            "color": "Red",
+            "color": "INDIANRED",
             "name": "Винницкая область",
             "lat": 49.187211,
             "lng": 28.556336
         },
         "2": {
-            "color": "Maroon",
+            "color": "CRIMSON",
             "name": "Волынская область",
             "lat": 51.147584,
             "lng": 24.880998
         },
         "3": {
-            "color": "Yellow",
+            "color": "FIREBRICK",
             "name": "Днепропетровская область",
             "lat": 48.419174,
             "lng": 35.240662
         },
         "4": {
-            "color": "Olive",
+            "color": "PINK",
             "name": "Донецкая область",
             "lat": 47.961066,
             "lng": 37.958122
         },
         "5": {
-            "color": "Lime",
+            "color": "HOTPINK",
             "name": "Житомирская область",
             "lat": 50.210778,
             "lng": 28.827041
         },
         "6": {
-            "color": "Green",
+            "color": "DEEPPINK",
             "name": "Закарпатская область",
             "lat": 48.495127,
             "lng": 22.792596
         },
         "7": {
-            "color": "Aqua",
+            "color": "MEDIUMVIOLETRED",
             "name": "Запорожская область",
             "lat": 47.121217,
             "lng": 35.357896
         },
         "8": {
-            "color": "Teal",
+            "color": "CORAL",
             "name": "Ивано-Франковская область",
             "lat": 48.904808,
             "lng": 24.986804
         },
         "9": {
-            "color": "Blue",
+            "color": "ORANGERED",
             "name": "Киевская область",
             "lat": 49.485755,
             "lng": 30.677721
         },
         "10": {
-            "color": "Navy",
+            "color": "ORANGE",
             "name": "Кировоградская область",
             "lat": 48.396748,
             "lng": 32.358629
         },
         "11": {
-            "color": "Fuchsia",
+            "color": "GOLD",
             "name": "Луганская область",
             "lat": 48.498770,
             "lng": 39.071275
         },
         "12": {
-            "color": "Purple",
+            "color": "DARKKHAKI",
             "name": "Львовская область",
             "lat": 49.778070,
             "lng": 24.294665
         },
         "13": {
-            "color": "Grey",
+            "color": "THISTLE",
             "name": "Николаевская область",
             "lat": 47.351784,
             "lng": 31.413805
         },
         "14": {
-            "color": "Red",
+            "color": "VIOLET",
             "name": "Одесская область",
             "lat": 46.819232,
             "lng": 29.855748
         },
         "15": {
-            "color": "Maroon",
+            "color": "MAGENTA",
             "name": "Полтавская область",
             "lat": 49.443484,
             "lng": 34.555894
         },
         "16": {
-            "color": "Yellow",
+            "color": "MEDIUMORCHID",
             "name": "Ровенская область",
             "lat": 50.934544,
             "lng": 26.272204
         },
         "17": {
-            "color": "Olive",
+            "color": "MEDIUMPURPLE",
             "name": "Сумская область",
             "lat": 50.969150,
             "lng": 34.303209
         },
         "18": {
-            "color": "Lime",
+            "color": "REBECCAPURPLE",
             "name": "Тернопольская область",
             "lat": 49.679152,
             "lng": 25.415270
         },
         "19": {
-            "color": "Green",
+            "color": "DARKORCHID",
             "name": "Харьковская область",
             "lat": 49.820618,
             "lng": 36.258775
         },
         "20": {
-            "color": "Aqua",
+            "color": "PURPLE",
             "name": "Херсонская область",
             "lat": 46.366261,
             "lng": 32.633287
         },
         "21": {
-            "color": "Teal",
+            "color": "INDIGO",
             "name": "Хмельницкая область",
             "lat": 49.243064,
             "lng": 27.107165
         },
         "22": {
-            "color": "Blue",
+            "color": "MEDIUMSLATEBLUE",
             "name": "Черкасская область",
             "lat": 49.820618,
             "lng": 32.193834
         },
         "23": {
-            "color": "Navy",
+            "color": "CHARTREUSE",
             "name": "Черновицкая область",
             "lat": 48.184540,
             "lng": 25.668247
         },
         "24": {
-            "color": "Fuchsia",
+            "color": "LIMEGREEN",
             "name": "Черниговская область",
             "lat": 51.730663,
             "lng": 31.756328
         },
         "25": {
-            "color": "Purple",
+            "color": "MEDIUMSEAGREEN",
             "name": "Киев",
             "lat": 50.436616,
             "lng": 30.684678
