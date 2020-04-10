@@ -239,6 +239,7 @@ function getDataGraph(data_graph) {
     data_graph.forEach((el)=>{
         data.xAxes.push(el.date.replace(' 10:00', ''));
         data.c.push(el.total.c - el.total.d - el.total.r);
+        data.cSum.push(el.total.c);
         data.d.push(el.total.d);
         data.r.push(el.total.r);
     });
@@ -306,7 +307,7 @@ function graphDyn(data) {
         data: {
             labels: data.xAxes,
             datasets: [
-            getDatasetGraph(data.c.map((item, i, arr) => {
+            getDatasetGraph(data.cSum.map((item, i, arr) => {
                 var res = item - curValueC;
                 curValueC = item;
                 return res;

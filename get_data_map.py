@@ -16,7 +16,7 @@ area = {
 	'Кіровоградська область': "10",
 	'Луганська область': "11",
 	'Львівська область': "12",
-	'Ніколаевска область': "13",
+	'Миколаївська область': "13",
 	'Одеська область': "14",
 	'Полтавська область': "15",
 	'Рівненська область': "16",
@@ -47,7 +47,7 @@ def getHtml(url):
 	return req.status_code, req.text
 
 def getData(html):
-	result = [(x[0].strip(),x[1]) for x in re.findall(r'▪️(.+)&mdash;[^\d]*(\d+)', html)]
+	result = [(x[0].strip(),x[1]) for x in re.findall(r'<li>(.+)&mdash;[^\d]*(\d+)', html)]
 	return result
 
 def getDataJson(data, arg):
