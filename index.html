@@ -15,7 +15,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=800">
-    <link href="style.css?v=2" rel="stylesheet" type="text/css" />
+    <link href="style.css?v=3" rel="stylesheet" type="text/css" />
     <title>Статистика ситуации с коронавирусной инфекцией Covid-19 в Украине</title>
     <meta name="description" content="Covid-19 в Украине - вся динамика заражения по Украине в разрезе областей и по стране в целом.">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -59,7 +59,41 @@
                 <h2>График динамики заражения COVID-19 в Украине</h2>
                 <canvas id="chartDyn" width="100%" height="30"></canvas>
             </div>
-
+            <div class="content">
+                <h2>Графики заражения по областям</h2>
+                <div class="area-charts-wrapper">
+                    <div class="area-charts-canvas">
+                        <canvas id="chartArea" width="100%" height="95"></canvas>
+                    </div>
+                    <div class="area-charts-select">
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-1" data-id="1"><label for="area-option-1">Винницкая область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-2" data-id="2"><label for="area-option-2">Волынская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-3" data-id="3"><label for="area-option-3">Днепропетровская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-4" data-id="4"><label for="area-option-4">Донецкая область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-5" data-id="5"><label for="area-option-5">Житомирская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-6" data-id="6"><label for="area-option-6">Закарпатская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-7" data-id="7"><label for="area-option-7">Запорожская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-8" data-id="8"><label for="area-option-8">Ивано-Франковская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-9" data-id="9"><label for="area-option-9">Киевская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-10" data-id="10"><label for="area-option-10">Кировоградская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-11" data-id="11"><label for="area-option-11">Луганская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-12" data-id="12"><label for="area-option-12">Львовская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-13" data-id="13"><label for="area-option-13">Николаевская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-14" data-id="14"><label for="area-option-14">Одесская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-15" data-id="15"><label for="area-option-15">Полтавская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-16" data-id="16"><label for="area-option-16">Ровенская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-17" data-id="17"><label for="area-option-17">Сумская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-18" data-id="18"><label for="area-option-18">Тернопольская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-19" data-id="19"><label for="area-option-19">Харьковская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-20" data-id="20"><label for="area-option-20">Херсонская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-21" data-id="21"><label for="area-option-21">Хмельницкая область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-22" data-id="22"><label for="area-option-22">Черкасская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-23" data-id="23"><label for="area-option-23">Черновицкая область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-24" data-id="24"><label for="area-option-24">Черниговская область</label></div>
+                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-25" data-id="25"><label for="area-option-25">Киев</label></div>
+                    </div>
+                </div>
+            </div>
 
             <div class="content">
                 <h2>Некоторые рекорды пандемии коронавируса в Украине</h2>
@@ -162,7 +196,7 @@
 
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB00b39uhJ2MIK3oW8Ku_28x36_5OlaLQ&callback=initMap">
     </script>

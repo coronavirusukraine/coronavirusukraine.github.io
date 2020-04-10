@@ -1,129 +1,193 @@
 var zero = {lat: 49.0, lng: 31.0};
 var url_map = 'https://coronavirusukraine.github.io/data_map.json';
 var url_graph = 'https://coronavirusukraine.github.io/data_graph.json';
+var chartAreas;
+var dataArea = {
+    "areas": {},
+    "xAxes": []
+};
+var config = {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: []
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: false,
+            text: 'Chart.js Line Chart'
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        hover: {
+            mode: 'nearest',
+            intersect: true
+        },
+        scales: {
+            xAxes: [{
+                display: false,
+                stacked: true
+            }],
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+                stacked: true
+            }]
+        },
+    }
+};
 var data = {
     "area": {
         "1": {
+            "color": "Red",
             "name": "Винницкая область",
             "lat": 49.187211,
             "lng": 28.556336
         },
         "2": {
+            "color": "Maroon",
             "name": "Волынская область",
             "lat": 51.147584,
             "lng": 24.880998
         },
         "3": {
+            "color": "Yellow",
             "name": "Днепропетровская область",
             "lat": 48.419174,
             "lng": 35.240662
         },
         "4": {
+            "color": "Olive",
             "name": "Донецкая область",
             "lat": 47.961066,
             "lng": 37.958122
         },
         "5": {
+            "color": "Lime",
             "name": "Житомирская область",
             "lat": 50.210778,
             "lng": 28.827041
         },
         "6": {
+            "color": "Green",
             "name": "Закарпатская область",
             "lat": 48.495127,
             "lng": 22.792596
         },
         "7": {
+            "color": "Aqua",
             "name": "Запорожская область",
             "lat": 47.121217,
             "lng": 35.357896
         },
         "8": {
+            "color": "Teal",
             "name": "Ивано-Франковская область",
             "lat": 48.904808,
             "lng": 24.986804
         },
         "9": {
+            "color": "Blue",
             "name": "Киевская область",
             "lat": 49.485755,
             "lng": 30.677721
         },
         "10": {
+            "color": "Navy",
             "name": "Кировоградская область",
             "lat": 48.396748,
             "lng": 32.358629
         },
         "11": {
+            "color": "Fuchsia",
             "name": "Луганская область",
             "lat": 48.498770,
             "lng": 39.071275
         },
         "12": {
+            "color": "Purple",
             "name": "Львовская область",
             "lat": 49.778070,
             "lng": 24.294665
         },
         "13": {
+            "color": "Grey",
             "name": "Николаевская область",
             "lat": 47.351784,
             "lng": 31.413805
         },
         "14": {
+            "color": "Red",
             "name": "Одесская область",
             "lat": 46.819232,
             "lng": 29.855748
         },
         "15": {
+            "color": "Maroon",
             "name": "Полтавская область",
             "lat": 49.443484,
             "lng": 34.555894
         },
         "16": {
+            "color": "Yellow",
             "name": "Ровенская область",
             "lat": 50.934544,
             "lng": 26.272204
         },
         "17": {
+            "color": "Olive",
             "name": "Сумская область",
             "lat": 50.969150,
             "lng": 34.303209
         },
         "18": {
+            "color": "Lime",
             "name": "Тернопольская область",
             "lat": 49.679152,
             "lng": 25.415270
         },
         "19": {
+            "color": "Green",
             "name": "Харьковская область",
             "lat": 49.820618,
             "lng": 36.258775
         },
         "20": {
+            "color": "Aqua",
             "name": "Херсонская область",
             "lat": 46.366261,
             "lng": 32.633287
         },
         "21": {
+            "color": "Teal",
             "name": "Хмельницкая область",
             "lat": 49.243064,
             "lng": 27.107165
         },
         "22": {
+            "color": "Blue",
             "name": "Черкасская область",
             "lat": 49.820618,
             "lng": 32.193834
         },
         "23": {
+            "color": "Navy",
             "name": "Черновицкая область",
             "lat": 48.184540,
             "lng": 25.668247
         },
         "24": {
+            "color": "Fuchsia",
             "name": "Черниговская область",
             "lat": 51.730663,
             "lng": 31.756328
         },
         "25": {
+            "color": "Purple",
             "name": "Киев",
             "lat": 50.436616,
             "lng": 30.684678
@@ -248,6 +312,25 @@ function getDataGraph(data_graph) {
     return data;
 }
 
+function getDataAreaGraph(data_graph) {
+    let data = {
+        "areas": {},
+        "xAxes": []
+    }
+    data_graph.forEach((el)=>{
+        data.xAxes.push(el.date.replace(' 10:00', ''));
+        for (var key in el.confirmed) {
+            if (data.areas[key] == undefined) {
+                data.areas[key] = [el.confirmed[key].c];
+            } else {
+                data.areas[key].push(el.confirmed[key].c);
+            }
+        }
+    });
+
+    return data;
+}
+
 function getDatasetGraph(data, label, backgroundColor, borderColor, fill=false) {
     return {
         label: label,
@@ -296,6 +379,12 @@ function graphTotal(data) {
             }
         }
     });
+}
+
+function graphArea(data) {
+    var ctx = document.getElementById('chartArea').getContext('2d');
+    config.data.labels = data.xAxes;
+    chartAreas = new Chart(ctx, config);
 }
 
 function graphDyn(data) {
@@ -355,7 +444,38 @@ function initGrahp() {
         let data = getDataGraph(data_graph);
         graphTotal(data);
         graphDyn(data);
+        dataArea = getDataAreaGraph(data_graph);
+        graphArea(dataArea);
     });
 }
+
+var el = document.getElementsByClassName('area-option');
+
+function updateGraphArea() {
+    var dataset = [];
+    Array.prototype.forEach.call(el, (el) => {
+        if (el.checked) {
+            var newDataset = {
+                label: data.area[el.dataset.id].name,
+                backgroundColor: data.area[el.dataset.id].color,
+                borderColor: data.area[el.dataset.id].color,
+                data: dataArea.areas[el.dataset.id],
+                fill: false
+            };
+            dataset.push(newDataset);
+        }
+    });
+    config.data.datasets = dataset;
+    chartAreas.update();
+}
+
+Array.prototype.forEach.call(el, (el) => {
+    el.addEventListener('click', (event) => {
+        // console.log(event.target.dataset.id);
+        updateGraphArea();
+    });
+});
+
+
 
 initGrahp();
