@@ -128,6 +128,7 @@ header h1 {
 }
 
 
+
 footer {
     min-height: 7em;
     background-color: #555;
@@ -135,6 +136,11 @@ footer {
 }
 
 @media screen and (max-width: 750px) {
+    .area-charts-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
     .blog-date {
         font-size: 0.8em;
         width: 6.5em;
@@ -146,13 +152,21 @@ footer {
         font-size: 1em;
     }
     .area-charts-canvas {
-        width: 55%;
+        width: 100%;
     }
     
     .area-charts-select {
-        width: 45%;
-        font-size: 90%;
+        width: 100%;
+        font-size: 1.2em;
         padding-left: 0.5em;
+        height: 10em;
+        overflow-y: scroll;
+        background-color: #c8d3ff;
+        margin: 1em 0;
+    }
+
+    .area-charts-option {
+        margin: 0.6em 0 0.6em 2em;
     }
 }
 
@@ -163,12 +177,4 @@ footer {
         padding: 0.4em 0.2em;
     }
 
-    .area-charts-canvas {
-        width: 50%;
-    }
-    
-    .area-charts-select {
-        width: 50%;
-        font-size: 70%;
-    }
 }

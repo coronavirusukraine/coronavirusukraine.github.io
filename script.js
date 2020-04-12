@@ -198,9 +198,13 @@ function getIcon(n) {
     var _color = '#FF99CC';
     var _scale = 12*1.4;
     var _colorText = '#184e0a';
-    if (n >= 100 && n <1000) {
+    if (n >= 100 && n <500) {
         _color = '#FF0099';
         _scale = 17*1.4;
+        _colorText = '#FFFF99';
+    } else if (n >= 500 && n < 1000) {
+        _color = '#bb060e';
+        _scale = 19*1.4;
         _colorText = '#FFFF99';
     } else if (n >= 1000 && n < 10000) {
         _color = '#CC0066';
