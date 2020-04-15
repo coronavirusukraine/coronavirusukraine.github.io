@@ -483,3 +483,4 @@ Array.prototype.forEach.call(el, (el) => {
 
 
 initGrahp();
+updateGraphArea();
