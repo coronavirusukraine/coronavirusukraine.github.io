@@ -450,6 +450,7 @@ function initGrahp() {
         graphDyn(data);
         dataArea = getDataAreaGraph(data_graph);
         graphArea(dataArea);
+        updateGraphArea();
     });
 }
 
@@ -483,4 +484,3 @@ Array.prototype.forEach.call(el, (el) => {
 
 
 initGrahp();
-updateGraphArea();
