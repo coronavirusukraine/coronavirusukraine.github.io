@@ -46,9 +46,16 @@ def getHtml(url):
 	req = requests.get(url)
 	return req.status_code, req.text
 
-def getData(html):
+def getDataOld(html):
 	result = [(x[0].strip(),x[1]) for x in re.findall(r'<li>(.+)&mdash;[^\d]*(\d+)', html)]
 	return result
+
+def getData(html):
+	def f(data):
+		patern = re.compile(data + '.+&mdash;[^\d]*(\d+)')
+		res = patern.findall(html)
+		return (data, res[0])
+	return list(map(f, area.keys()))
 
 def getDataJson(data, arg):
 	return {
