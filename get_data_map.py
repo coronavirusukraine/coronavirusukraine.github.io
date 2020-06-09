@@ -60,9 +60,9 @@ def getData(html):
 
 def getDataTotal(html):
 	def f(text):
-		patern = re.compile('(\d+) ' + text)
+		patern = re.compile('(\d+\s?\d+) ' + text)
 		res = patern.findall(html)
-		return int(res[0])
+		return int(res[0].replace(' ', ''))
 
 	return {'c': f('випадк'), 'd': f('померл'), 'r': f('одужали')}
 
