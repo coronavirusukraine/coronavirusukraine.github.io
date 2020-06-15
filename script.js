@@ -302,9 +302,18 @@ function initMap() {
 }
 
 function getDataGraph(data_graph) {
+    let f = function(_total) {
+        if (_total.r == 0 || _total.d == 0) {
+            return 0;
+        }
+        let res = (_total.c - (_total.d + _total.r)) / (_total.d + _total.r);
+        console.log(_total.d, _total.r, _total.c, res);
+        return res;
+    }
     let data = {
         "c": [],
         "cSum": [],
+        "ot": [],
         "d": [],
         "r": [],
         "xAxes": []
@@ -313,6 +322,7 @@ function getDataGraph(data_graph) {
         data.xAxes.push(el.date.replace(' 10:00', ''));
         data.c.push(el.total.c - el.total.d - el.total.r);
         data.cSum.push(el.total.c);
+        data.ot.push(f(el.total));
         data.d.push(el.total.d);
         data.r.push(el.total.r);
     });
@@ -389,6 +399,41 @@ function graphTotal(data) {
     });
 }
 
+function graphOt(data) {
+    var ctx = document.getElementById('chartOt').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: data.xAxes,
+            datasets: [
+            getDatasetGraph(data.ot, 'Отношение', 'rgba(255, 99, 132, 0.3)', 'rgba(255, 99, 132)', true),
+            ]
+        },
+        options: {
+            responsive: true,
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            scales: {
+                xAxes: [{
+                    display: false,
+                    stacked: true
+                }],
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    stacked: false
+                }]
+            },
+            legend: {
+                position: 'bottom'
+            }
+        }
+    });
+}
+
 function graphArea(data) {
     var ctx = document.getElementById('chartArea').getContext('2d');
     config.data.labels = data.xAxes;
@@ -451,6 +496,7 @@ function initGrahp() {
     getData(url_graph, (data_graph) => {
         let data = getDataGraph(data_graph);
         graphTotal(data);
+        graphOt(data);
         graphDyn(data);
         dataArea = getDataAreaGraph(data_graph);
         graphArea(dataArea);
