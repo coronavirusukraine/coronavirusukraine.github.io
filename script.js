@@ -307,7 +307,6 @@ function getDataGraph(data_graph) {
             return 0;
         }
         let res = (_total.c - (_total.d + _total.r)) / (_total.d + _total.r);
-        console.log(_total.d, _total.r, _total.c, res);
         return res;
     }
     let data = {
