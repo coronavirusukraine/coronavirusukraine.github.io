@@ -64,7 +64,7 @@ def getDataTotal(html):
 		res = patern.findall(html)
 		return int(res[0].replace(' ', ''))
 
-	return {'c': f('випадк'), 'd': f('померл'), 'r': f('одужа')}
+	return {'c': f('лаборат'), 'd': f('леталь'), 'r': f('пацієнт')}
 
 def getDataJson(data, data_total, arg):
 	return {
