@@ -33,6 +33,7 @@ area = {
 
 url = 'https://moz.gov.ua/article/news/operativna-informacija-pro-poshirennja-koronavirusnoi-infekcii-2019-ncov-'
 url = 'https://moz.gov.ua/article/news/operativna-informacija-pro-poshirennja-koronavirusnoi-infekcii-2019-ncov-1'
+url = 'https://moz.gov.ua/article/news/operativna-informacija-pro-poshirennja-koronavirusnoi-infekcii-2019-ncov1'
 
 def getAction():
 	__parser = argparse.ArgumentParser(description='''get day data from MOZ''')
