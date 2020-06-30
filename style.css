@@ -48,6 +48,17 @@ header h1 {
     text-align: right;
 }
 
+.the-end {
+    background-color: #ab1313;
+    color: white;
+    padding: 2%;
+    border-radius: 6px;
+}
+
+.the-end h2 {
+    color: white;
+}
+
 #current-date {
     color: #000;
     font-weight: bold;
