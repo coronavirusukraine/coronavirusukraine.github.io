@@ -1,386 +1,586 @@
-
 <!DOCTYPE html>
 <html>
+    <head>
+	<meta name="generator" content="Hugo 0.40.1" />
+		
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112983683-1"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-<head>
-    <script data-ad-client="ca-pub-1643214762783763" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112983683-4"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+		gtag('config', 'UA-112983683-1');
+		</script>
 
-      gtag('config', 'UA-112983683-4');
-    </script>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=680">
+		
+		<title>Фотографии города Новомосковск</title>
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		
+		
+		<link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+		<div class="wrapper">
+			<div class="wrapper2">
+					<div class="top_menu_wrapper">
+	
+	<div class="center">
+		<ul class="top_menu">
+			
+			<li><a href="/">Главная</a></li>
+			
+			<li><a href="/disqus">Обратная связь</a></li>
+			
+		</ul>
+	</div>
+	
+</div>
+<div class="center_img_wrapper">
+	<div class="center_img"></div>
+</div>
 
-    <meta charset="utf-8">
-    <!-- <meta name="viewport" content="width=800"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="style.css?v=9" rel="stylesheet" type="text/css" />
-    <title>Статистика ситуации с коронавирусной инфекцией Covid-19 в Украине</title>
-    <meta name="description" content="Covid-19 в Украине - вся динамика заражения по Украине в разрезе областей и по стране в целом.">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body>
-    <div class="wrapper">
-        <header>
-            <h1>Статистика ситуации с коронавирусной инфекцией Covid-19 в Украине</h1>
-            <p>
-                Ситуация с коронавирусом Covid-19 в Украине стремительно меняется каждый день. Здесь можно увидеть
-                всю динамику заражения по Украине в разрезе областей и по стране в целом.
-            </p>
-        </header>
-        <div class="wrapper-content">
-            <div class="content the-end">
-                <h2>Останавливаем сбор статистики</h2>
-                <p>
-                    Мы на этом сайте собирали статистику по заболеваниям коронавирусом в Украине с <b>3 марта</b> по <b>28 июня</b>
-                    на официальном сайте МОЗ Украины. В течении всего периода получения информации мы сталкивались с различными проблемами
-                    ее получения, такими как:
-                    <ul>
-                        <li>Периодически менялся адрес целевой страницы</li>
-                        <li>Структура html менялась рас в два дня</li>
-                        <li>Итоговые данные иногда не соответствовали сумме данных по областям</li>
-                    </ul>
-                    29 июня страница статистики в очередной раз ответила 404, но на этот раз найти новую не удалось. Поэтому мы ставим точку, 
-                    а IT отделу в МОЗ большой привет, такой некомпетентности и похабному отношению к основной функции раздела сайта 
-                    не видели давно. 
-                </p>
-            </div>
-            <div class="content">
-                <h2>Итого по Украине</h2>
-                <div class="info">
-                    Информация по состоянию на <span id="current-date">dd-mm-YYYY</span>, 
-                    по данным сайта <a target="_blank" href="https://moz.gov.ua/article/news/operativna-informacija-pro-poshirennja-koronavirusnoi-infekcii-2019-ncov1">МОЗ</a>
-                </div>
-                <ul id="total-data">
-                    <li>Заболевших - <span class="total-text" id="total-data-c">0</span></li>
-                    <li>Умерших - <span class="total-text" id="total-data-d">0</span></li>
-                    <li>Выздоровевших - <span class="total-text" id="total-data-r">0</span></li>
-                </ul>
-            </div>
-            <div class="content">
-                <h2>Карта распространения коронавируса в Украине</h2>
-                <div id="map"></div>
-            </div>
-            <div class="content">
-                <h2>Распространение коронавируса по областям</h2>
-                <div id="table"></div>
-            </div>
-            <div class="content">
-                <h2>График распространение COVID-19 в Украине</h2>
-                <canvas id="chartTotal" width="100%" height="70"></canvas>
-            </div>
-            <div class="content">
-                <h2>Отношение количества заразившимся к выздоравевшим </h2>
-                <canvas id="chartOt" width="100%" height="30"></canvas>
-            </div>
-            <div class="content">
-                <h2>График динамики заражения COVID-19 в Украине</h2>
-                <canvas id="chartDyn" width="100%" height="70"></canvas>
-            </div>
-            <div class="content">
-                <h2>Графики заражения по областям</h2>
-                <div class="area-charts-wrapper">
-                    <div class="area-charts-canvas">
-                        <canvas id="chartArea" width="100%" height="105"></canvas>
-                    </div>
-                    <div class="area-charts-select">
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-1" data-id="1"><label for="area-option-1">Винницкая область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-2" data-id="2"><label for="area-option-2">Волынская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-3" data-id="3"><label for="area-option-3">Днепропетровская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-4" data-id="4"><label for="area-option-4">Донецкая область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-5" data-id="5"><label for="area-option-5">Житомирская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-6" data-id="6"><label for="area-option-6">Закарпатская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-7" data-id="7"><label for="area-option-7">Запорожская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-8" data-id="8"><label for="area-option-8">Ивано-Франковская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-9" data-id="9"><label for="area-option-9">Киевская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-10" data-id="10"><label for="area-option-10">Кировоградская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-11" data-id="11"><label for="area-option-11">Луганская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-12" data-id="12"><label for="area-option-12">Львовская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-13" data-id="13"><label for="area-option-13">Николаевская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-14" data-id="14"><label for="area-option-14">Одесская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-15" data-id="15"><label for="area-option-15">Полтавская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-16" data-id="16"><label for="area-option-16">Ровенская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-17" data-id="17"><label for="area-option-17">Сумская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-18" data-id="18"><label for="area-option-18">Тернопольская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-19" data-id="19"><label for="area-option-19">Харьковская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-20" data-id="20"><label for="area-option-20">Херсонская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-21" data-id="21"><label for="area-option-21">Хмельницкая область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-22" data-id="22"><label for="area-option-22">Черкасская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-23" data-id="23"><label for="area-option-23">Черновицкая область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" class="area-option" id="area-option-24" data-id="24"><label for="area-option-24">Черниговская область</label></div>
-                        <div class="area-charts-option"><input type="checkbox" checked="checked" class="area-option" id="area-option-25" data-id="25"><label for="area-option-25">Киев</label></div>
-                    </div>
-                </div>
-            </div>
+					<div class="content_wrapper">
+						<div class="content_center">
+							<div class="content">
+							
+		
+		<div class="head">
+			<h1>Фотографии города Новомосковск</h1>
+		</div>
+		
+		<div class="body">
+			<div class="photo_wrapper">
+				
+				<div class="content-text">
+				<p>На нашем сайте представлены старые фотографии города Новомосковска (Днепропетровская область, Украина) которые были сделаны в 80-х и 90-х годах прошлого века. На них можно увидеть достопримечательности Новомосковска запечатленные в разное время, такие как Собор, горбатый мост, колесо обозрения, памятник Ленину и прочее. Так же имеются фотографии с различных городских праздничных мероприятий Новомосковска. И просто городская архитектура на фотографиях в которых зафиксированы изменения наложенные временем. Все представленные фотографии до нынешнего момента хранились в виде негативов и отпечатков на фотобумаге в личном фотоархиве и нигде и никогда не публиковались кроме этого сайта. Негативов еще много необработанных, поэтому база сайта пополняется постепенно, заходите почаще.</p>
 
-            <div class="content">
-                <h2>Некоторые рекорды пандемии коронавируса в Украине</h2>
-                <div class="blog-wrapper">
-                    <div class="blog">
-                        <div class="blog-date">03-03-2020</div>
-                        <div class="blog-content">
-                            Зафиксировано первое заражение коронавирусом в Украине в Черновицкой области.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">13-03-2020</div>
-                        <div class="blog-content">
-                            Умер первый больной коронавирусом, 71-летняя женщина из Житомирской области.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">17-03-2020</div>
-                        <div class="blog-content">
-                            Общее число заразившихся по Украине превысило 10 человек.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">20-03-2020</div>
-                        <div class="blog-content">
-                            В Черновицкой области выздоровел первый инфицированный короновирусом.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">25-03-2020</div>
-                        <div class="blog-content">
-                            Более 100 человек заразилось короновирусом в Украине по официальной информации.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">28-03-2020</div>
-                        <div class="blog-content">
-                            По данным МОЗ зафиксирован первый заразившийся в Николаевской области, 
-                            однако в последствии на официальном сайте министерства в данные по Николаевской области - 0 заразившихся.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">30-03-2020</div>
-                        <div class="blog-content">
-                            Количество инфицированных в Киеве превысило 100 человек. Умерло от коронавируса в Украине
-                            более 10 человек.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">31-03-2020</div>
-                        <div class="blog-content">
-                            В Украине зафиксированно более 500 заразившихся человек.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">01-04-2020</div>
-                        <div class="blog-content">
-                            В Черновицкой области число больных коронавирусом превысило 100 человек. Первые 10 человек - победили
-                            болезнь.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">02-04-2020</div>
-                        <div class="blog-content">
-                            Тернопольская область - более 100 зараженных.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">04-04-2020</div>
-                        <div class="blog-content">
-                            В Черновицкой области уже более 200 человек официально заражены, 
-                            а в Украине в целом количество подтвержденных случаев ифицирования коронавирусом 
-                            превысило 1000 человек.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">05-04-2020</div>
-                        <div class="blog-content">
-                            В Киеве более 200 зараженных коронавирусом.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">09-04-2020</div>
-                        <div class="blog-content">
-                            В Черновицкой области уже более 300 человек официально инфицированны,
-                            а в Киеве ровно 300 человек зараженных коронавирусом.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">10-04-2020</div>
-                        <div class="blog-content">
-                            В Украине более 2000 человек заразились коронавирусом.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">11-04-2020</div>
-                        <div class="blog-content">
-                            Впервые количество выздоровевших (79 человек) превысили количество умерших
-                            (73 человека) от коронавируса.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">12-04-2020</div>
-                        <div class="blog-content">
-                            Официально в Украине во всех регионах выявлены заражения коронавирусом.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">13-04-2020</div>
-                        <div class="blog-content">
-                            В Украине более 3000 человек заразились коронавирусом.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">14-04-2020</div>
-                        <div class="blog-content">
-                            Количество вылечившихся от коронавируса в Украине уже более 100 человек.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">15-04-2020</div>
-                        <div class="blog-content">
-                            Общее число умерших от коронавируса в Украине превысило 100 человек.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">16-04-2020</div>
-                        <div class="blog-content">
-                            В Украине заразились коронавирусом более 4000 человек.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">18-04-2020</div>
-                        <div class="blog-content">
-                            В Украине более 5000 человек заразились коронавирусом.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">22-04-2020</div>
-                        <div class="blog-content">
-                            В Черновицкой области более 1000 человек инфицированны коронавирусом.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">23-04-2020</div>
-                        <div class="blog-content">
-                            В Киеве более 1000 человек болеют коронавирусом.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">25-04-2020</div>
-                        <div class="blog-content">
-                            В Украине более 200 человек умерло от коронавируса.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">29-04-2020</div>
-                        <div class="blog-content">
-                            В Украине более 1000 человек вылечились от коронавируса.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">30-04-2020</div>
-                        <div class="blog-content">
-                            Более 10000 человек заражены коронавирусом в Украине.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">06-05-2020</div>
-                        <div class="blog-content">
-                            В Украине более 2000 человек вылечились от коронавируса.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">07-05-2020</div>
-                        <div class="blog-content">
-                            В Черновицкой области более 2000 человек инфицированны коронавирусом.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">10-05-2020</div>
-                        <div class="blog-content">
-                            В Украине более 15000 человек заразились коронавирусом.
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">14-05-2020</div>
-                        <div class="blog-content">
-                            Впервые, количество тех, выздоровел за сутки (427 человек) превысило количество заболевших за сутки (422 человека)
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">17-05-2020</div>
-                        <div class="blog-content">
-                            Количество выздоровевших в Украине более 5000 человек
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">22-05-2020</div>
-                        <div class="blog-content">
-                            В Украине более 20000 человек заразились коронавирусом
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">02-06-2020</div>
-                        <div class="blog-content">
-                            В Украине более 10000 человек вылечились от коронавируса
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">13-06-2020</div>
-                        <div class="blog-content">
-                            В Украине более 30000 человек заразились коронавирусом
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">21-06-2020</div>
-                        <div class="blog-content">
-                            В Украине более 1000 человек умерли от коронавируса
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog-date">26-06-2020</div>
-                        <div class="blog-content">
-                            Прирост заражений превысил 1000 человек в сутки
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <div class="wrapper">
-            <a class="github-link" target="_blank" href="https://github.com/coronavirusukraine/coronavirusukraine.github.io">
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="36px" height="36px" viewBox="0 0 438.549 438.549" style="enable-background:new 0 0 438.549 438.549;"
-                xml:space="preserve"><g><path fill="white" d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
-                    c-39.781,0-76.472,9.804-110.063,29.408c-33.596,19.605-60.192,46.204-79.8,79.8C9.803,148.168,0,184.854,0,224.63
-                    c0,47.78,13.94,90.745,41.827,128.906c27.884,38.164,63.906,64.572,108.063,79.227c5.14,0.954,8.945,0.283,11.419-1.996
-                    c2.475-2.282,3.711-5.14,3.711-8.562c0-0.571-0.049-5.708-0.144-15.417c-0.098-9.709-0.144-18.179-0.144-25.406l-6.567,1.136
-                    c-4.187,0.767-9.469,1.092-15.846,1c-6.374-0.089-12.991-0.757-19.842-1.999c-6.854-1.231-13.229-4.086-19.13-8.559
-                    c-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559
-                    c-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-0.951-2.568-2.098-3.711-3.429c-1.142-1.331-1.997-2.663-2.568-3.997
-                    c-0.572-1.335-0.098-2.43,1.427-3.289c1.525-0.859,4.281-1.276,8.28-1.276l5.708,0.853c3.807,0.763,8.516,3.042,14.133,6.851
-                    c5.614,3.806,10.229,8.754,13.846,14.842c4.38,7.806,9.657,13.754,15.846,17.847c6.184,4.093,12.419,6.136,18.699,6.136
-                    c6.28,0,11.704-0.476,16.274-1.423c4.565-0.952,8.848-2.383,12.847-4.285c1.713-12.758,6.377-22.559,13.988-29.41
-                    c-10.848-1.14-20.601-2.857-29.264-5.14c-8.658-2.286-17.605-5.996-26.835-11.14c-9.235-5.137-16.896-11.516-22.985-19.126
-                    c-6.09-7.614-11.088-17.61-14.987-29.979c-3.901-12.374-5.852-26.648-5.852-42.826c0-23.035,7.52-42.637,22.557-58.817
-                    c-7.044-17.318-6.379-36.732,1.997-58.24c5.52-1.715,13.706-0.428,24.554,3.853c10.85,4.283,18.794,7.952,23.84,10.994
-                    c5.046,3.041,9.089,5.618,12.135,7.708c17.705-4.947,35.976-7.421,54.818-7.421s37.117,2.474,54.823,7.421l10.849-6.849
-                    c7.419-4.57,16.18-8.758,26.262-12.565c10.088-3.805,17.802-4.853,23.134-3.138c8.562,21.509,9.325,40.922,2.279,58.24
-                    c15.036,16.18,22.559,35.787,22.559,58.817c0,16.178-1.958,30.497-5.853,42.966c-3.9,12.471-8.941,22.457-15.125,29.979
-                    c-6.191,7.521-13.901,13.85-23.131,18.986c-9.232,5.14-18.182,8.85-26.84,11.136c-8.662,2.286-18.415,4.004-29.263,5.146
-                    c9.894,8.562,14.842,22.077,14.842,40.539v60.237c0,3.422,1.19,6.279,3.572,8.562c2.379,2.279,6.136,2.95,11.276,1.995
-                    c44.163-14.653,80.185-41.062,108.068-79.226c27.88-38.161,41.825-81.126,41.825-128.906
-                    C438.536,184.851,428.728,148.168,409.132,114.573z"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
-                </svg>
-                <span>github</span> 
-            </a>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-    <script src="script.js?v=12"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB00b39uhJ2MIK3oW8Ku_28x36_5OlaLQ&callback=initMap">
-    </script>
-</body>
+				</div>
+				
+		
+			<div class="photo">
+	<div>
+		
+		<div class="juxtapose">
+			<img src="https://fotki.pp.ua/static/img/a/DSCN7411-09-89.jpg" alt="" title="" data-label="1989" />
+			<img src="https://fotki.pp.ua/static/img/8/DSCN7607.JPG" data-label="сейчас" />
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D1%86%D0%B2%D0%B5%D1%82%D0%BD%D0%BE%D0%B5-%D1%84%D0%BE%D1%82%D0%BE">Цветное фото</a></li>
+					
+					<li><a href="/tags/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C">Осень</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				Вход на новомосковский центральный рынок
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="juxtapose">
+			<img src="https://fotki.pp.ua/static/img/8/DSCN7272.jpg" alt="" title="" data-label="1986" />
+			<img src="https://fotki.pp.ua/static/img/7/DSCN7608.JPG" data-label="сейчас" />
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C">Осень</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				Памятник Шевченко в Новомосковске
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="juxtapose">
+			<img src="https://fotki.pp.ua/static/img/9/DSCN7597.jpg" alt="" title="" data-label="1985" />
+			<img src="https://fotki.pp.ua/static/img/1/DSCN7201.jpg" data-label="сейчас" />
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%BB%D0%B5%D1%82%D0%BE">Лето</a></li>
+					
+					<li><a href="/tags/%D1%81%D0%B0%D0%BC%D0%BE%D0%BB%D0%B5%D1%82">Самолет</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				Район самолета в Новомосковске
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="juxtapose">
+			<img src="https://fotki.pp.ua/static/img/8/DSCN7388-89-10.jpg" alt="" title="" data-label="1989" />
+			<img src="https://fotki.pp.ua/static/img/3/DSCN7388-89-10-1.jpg" data-label="сейчас" />
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D1%86%D0%B2%D0%B5%D1%82%D0%BD%D0%BE%D0%B5-%D1%84%D0%BE%D1%82%D0%BE">Цветное фото</a></li>
+					
+					<li><a href="/tags/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C">Осень</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				ул Спаская, магазин Геолог
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="juxtapose">
+			<img src="https://fotki.pp.ua/static/img/2/DSCN7408-09-89.jpg" alt="" title="" data-label="1989" />
+			<img src="https://fotki.pp.ua/static/img/a/DSCN7605-01.jpg" data-label="сейчас" />
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D1%86%D0%B2%D0%B5%D1%82%D0%BD%D0%BE%D0%B5-%D1%84%D0%BE%D1%82%D0%BE">Цветное фото</a></li>
+					
+					<li><a href="/tags/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C">Осень</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				ул Сучкова, аллея где сейчас стекляшки торговые
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="photo-single">
+			<img src="https://fotki.pp.ua/static/img/e/DSCN7110.jpg" alt="" title="" data-label="1992"/>
+			<div class="year-label">1992</div>
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%BF%D0%B0%D1%80%D0%BA">Парк</a></li>
+					
+					<li><a href="/tags/%D0%B2%D0%B5%D1%81%D0%BD%D0%B0">Весна</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="photo-single">
+			<img src="https://fotki.pp.ua/static/img/8/DSCN7163.jpg" alt="" title="" data-label="1987"/>
+			<div class="year-label">1987</div>
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%B2%D0%B5%D1%81%D0%BD%D0%B0">Весна</a></li>
+					
+					<li><a href="/tags/%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D0%BA">Праздник</a></li>
+					
+					<li><a href="/tags/1-%D0%BC%D0%B0%D1%8F">1 мая</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				1 Мая
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="photo-single">
+			<img src="https://fotki.pp.ua/static/img/0/DSCN7174.jpg" alt="" title="" data-label="1993"/>
+			<div class="year-label">1993</div>
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C">Осень</a></li>
+					
+					<li><a href="/tags/%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D0%BA">Праздник</a></li>
+					
+					<li><a href="/tags/1-%D1%81%D0%B5%D0%BD%D1%82%D1%8F%D0%B1%D1%80%D1%8F">1 сентября</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				1 сентября в 11 школе
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="photo-single">
+			<img src="https://fotki.pp.ua/static/img/1/DSCN7175.jpg" alt="" title="" data-label="1993"/>
+			<div class="year-label">1993</div>
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C">Осень</a></li>
+					
+					<li><a href="/tags/%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D0%BA">Праздник</a></li>
+					
+					<li><a href="/tags/1-%D1%81%D0%B5%D0%BD%D1%82%D1%8F%D0%B1%D1%80%D1%8F">1 сентября</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				1 сентября в 11 школе
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="photo-single">
+			<img src="https://fotki.pp.ua/static/img/8/DSCN7176.jpg" alt="" title="" data-label="1993"/>
+			<div class="year-label">1993</div>
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C">Осень</a></li>
+					
+					<li><a href="/tags/%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D0%BA">Праздник</a></li>
+					
+					<li><a href="/tags/1-%D1%81%D0%B5%D0%BD%D1%82%D1%8F%D0%B1%D1%80%D1%8F">1 сентября</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				1 сентября в 11 школе
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="photo-single">
+			<img src="https://fotki.pp.ua/static/img/0/DSCN7230.jpg" alt="" title="" data-label="1986"/>
+			<div class="year-label">1986</div>
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C">Осень</a></li>
+					
+					<li><a href="/tags/%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D0%BA">Праздник</a></li>
+					
+					<li><a href="/tags/1-%D1%81%D0%B5%D0%BD%D1%82%D1%8F%D0%B1%D1%80%D1%8F">1 сентября</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				1 сентября в 11 школе
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="photo-single">
+			<img src="https://fotki.pp.ua/static/img/7/DSCN7168.jpg" alt="" title="" data-label="1988"/>
+			<div class="year-label">1988</div>
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C">Осень</a></li>
+					
+					<li><a href="/tags/%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D0%BA">Праздник</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				7 ноября
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="photo-single">
+			<img src="https://fotki.pp.ua/static/img/9/DSCN7245.jpg" alt="" title="" data-label="1989"/>
+			<div class="year-label">1989</div>
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C">Осень</a></li>
+					
+					<li><a href="/tags/%D1%86%D1%83%D0%BC">ЦУМ</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				Автобусная остановка в районе ЦУМа
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="photo-single">
+			<img src="https://fotki.pp.ua/static/img/e/DSCN7091.jpg" alt="" title="" data-label="1985"/>
+			<div class="year-label">1985</div>
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%B0%D0%B2%D1%82%D0%BE%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB">Автовокзал</a></li>
+					
+					<li><a href="/tags/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C">Осень</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				Автовокзал
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="photo-single">
+			<img src="https://fotki.pp.ua/static/img/5/DSCN7122.jpg" alt="" title="" data-label="1987"/>
+			<div class="year-label">1987</div>
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C">Осень</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				Автовокзал
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="photo-single">
+			<img src="https://fotki.pp.ua/static/img/1/DSCN7389-89-10.jpg" alt="" title="" data-label="1989"/>
+			<div class="year-label">1989</div>
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D1%86%D0%B2%D0%B5%D1%82%D0%BD%D0%BE%D0%B5-%D1%84%D0%BE%D1%82%D0%BE">Цветное фото</a></li>
+					
+					<li><a href="/tags/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C">Осень</a></li>
+					
+					<li><a href="/tags/%D1%81%D0%BE%D0%B1%D0%BE%D1%80">Собор</a></li>
+					
+					<li><a href="/tags/%D0%B0%D0%B2%D1%82%D0%BE%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB">Автовокзал</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				Автовокзал в Новомосковске
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="photo-single">
+			<img src="https://fotki.pp.ua/static/img/8/DSCN7187.jpg" alt="" title="" data-label="1987"/>
+			<div class="year-label">1987</div>
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%B7%D0%B8%D0%BC%D0%B0">Зима</a></li>
+					
+					<li><a href="/tags/%D0%BF%D0%B0%D1%80%D0%BA">Парк</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				Аттракцион Олени в парке (обратите внимание, это январь месяц)
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="photo-single">
+			<img src="https://fotki.pp.ua/static/img/9/DSCN7213.jpg" alt="" title="" data-label="1986"/>
+			<div class="year-label">1986</div>
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%BF%D0%B0%D1%80%D0%BA">Парк</a></li>
+					
+					<li><a href="/tags/%D0%B2%D0%B5%D1%81%D0%BD%D0%B0">Весна</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				В городском парке
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+			<div class="photo">
+	<div>
+		
+		<div class="photo-single">
+			<img src="https://fotki.pp.ua/static/img/2/DSCN7244.jpg" alt="" title="" data-label="1989"/>
+			<div class="year-label">1989</div>
+		</div>
+		
+		<div class="description">
+			<div class="tags">
+				<ul>
+					
+					<li><a href="/tags/%D0%BE%D1%81%D0%B5%D0%BD%D1%8C">Осень</a></li>
+					
+					<li><a href="/tags/%D0%B0%D0%B2%D1%82%D0%BE%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB">Автовокзал</a></li>
+					
+				</ul>
+			</div>
+			<div class="text">
+				В направлении автовокзала
+			</div>
+		</div>
+	</div> 
+</div>
+
+		
+		<div class="paginator-wrapper">
+
+
+
+	<a href="/page/2/">Туда</a>
+
+</div>
+
+			</div>
+		</div>
+
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+		<link href="/css/juxtapose.css" rel="stylesheet" type="text/css" />
+    	<script src="/js/juxtapose.min.js"></script>
+	</body>
 </html>

@@ -1,0 +1,150 @@
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+
+.top_menu_wrapper {
+    background-color: black;
+    padding: 0.03em 0;
+}
+
+.center {
+    /* width: 50em; */
+    margin: 0 auto;
+}
+
+ul.top_menu, .description .tags ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+ul.top_menu li {
+    margin: 0 2em;
+}
+
+ul.top_menu li a{
+    color: white;
+}
+        
+ul.top_menu li a:visited{
+    color: white;
+}
+
+ul.top_menu li a:hover{
+    color: white;
+}
+
+.center_img {
+    height: 20em;
+    background: url('nmsk-fon1.png') black;
+}
+
+.content_wrapper {
+    
+}
+
+.content_center {
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    top: -17em;
+}
+
+.content h1 {
+    text-align: center;
+    font: normal normal normal 55px/1.4em georgia,palatino,'book antiqua','palatino linotype',serif;
+}
+
+.body {
+    width: 100%;
+    background-color: white;
+    /*height: 1000px;*/
+}
+
+.photo_wrapper {
+    max-width: 950px;
+    min-width: 567px;
+    margin: 0 auto;
+    padding: 1em;
+    
+}
+
+.photo_wrapper .content-text {
+    margin: 0 1.5em;
+}
+
+.photo {
+    margin-bottom: 3em;  
+}
+
+.photo img {
+    width: 100%;
+}
+
+.description .tags ul li {
+    margin: 0 1em;
+}
+
+.description .tags ul li::before {
+    content: '#';
+}
+
+.description .text {
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.paginator-wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.paginator-wrapper a {
+    display: block;
+    font-size: 3em;
+    margin: 0 0.3em;
+    background-color: cadetblue;
+    border-radius: 2em;
+    width: 3.5em;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.photo-single {
+    position: relative;
+}
+
+.photo-single img {
+    /* position: absolute; */
+}
+
+.photo-single .year-label {
+    position: absolute;
+    top: 0;
+    padding: .25em .75em;
+    background-color: rgba(0,0,0,.7);
+    color: white;
+    z-index: 10;
+    white-space: nowrap;
+    line-height: 18px;
+    vertical-align: middle;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+@media screen and (max-width: 900px) {
+    .photo_wrapper {
+        padding: 1em 0;
+    }
+}
