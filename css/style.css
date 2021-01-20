@@ -28,6 +28,7 @@ ul.top_menu li {
 
 ul.top_menu li a{
     color: white;
+    font-size: 1.2em;
 }
         
 ul.top_menu li a:visited{
@@ -75,11 +76,12 @@ ul.top_menu li a:hover{
     min-width: 567px;
     margin: 0 auto;
     padding: 1em;
-    
+    font-size: 1.5em;
 }
 
 .photo_wrapper .content-text {
     margin: 0 1.5em;
+    
 }
 
 .photo {
@@ -100,26 +102,24 @@ ul.top_menu li a:hover{
 
 .description .text {
     text-align: center;
-    font-size: 1.4em;
+    font-size: 1.2em;
 }
 
 .paginator-wrapper {
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .paginator-wrapper a {
     display: block;
-    font-size: 3em;
+    font-size: 2em;
     margin: 0 0.3em;
-    background-color: cadetblue;
-    border-radius: 2em;
     width: 3.5em;
     text-align: center;
     text-decoration: none;
-    color: white;
+    color: #666;
 }
 
 .photo-single {
@@ -141,6 +141,11 @@ ul.top_menu li a:hover{
     line-height: 18px;
     vertical-align: middle;
     font-family: Helvetica, Arial, sans-serif;
+}
+
+.material-icons {
+    font-size: 1.1em;
+    vertical-align: bottom;
 }
 
 @media screen and (max-width: 900px) {
