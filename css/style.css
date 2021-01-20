@@ -116,7 +116,6 @@ ul.top_menu li a:hover{
     display: block;
     font-size: 2em;
     margin: 0 0.3em;
-    width: 3.5em;
     text-align: center;
     text-decoration: none;
     color: #666;
@@ -144,8 +143,21 @@ ul.top_menu li a:hover{
 }
 
 .material-icons {
-    font-size: 1.1em;
+    font-size: 1.3em;
     vertical-align: bottom;
+}
+
+.tags_wrapper ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tags_wrapper ul li {
+    font-size: 1.3em;
+    margin: 0.3em 0.6em;
 }
 
 @media screen and (max-width: 900px) {
