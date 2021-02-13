@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1994 on Фотографии города Новомосковск</title>
+    <link>https://fotki.pp.ua/year/1994/</link>
+    <description>Recent content in 1994 on Фотографии города Новомосковск</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Tue, 03 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://fotki.pp.ua/year/1994/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Выходим к вечному огню</title>
+      <link>https://fotki.pp.ua/photo/photo-048/</link>
+      <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://fotki.pp.ua/photo/photo-048/</guid>
+      <description>Выходим к вечному огню</description>
+    </item>
+    
+    <item>
+      <title>Парк, за мостом</title>
+      <link>https://fotki.pp.ua/photo/photo-047/</link>
+      <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://fotki.pp.ua/photo/photo-047/</guid>
+      <description>Парк, за мостом</description>
+    </item>
+    
+  </channel>
+</rss>

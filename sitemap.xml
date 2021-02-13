@@ -765,6 +765,66 @@
   </url>
   
   <url>
+    <loc>https://fotki.pp.ua/year/1985/</loc>
+    <lastmod>2020-03-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fotki.pp.ua/year/1986/</loc>
+    <lastmod>2020-03-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fotki.pp.ua/year/1987/</loc>
+    <lastmod>2021-01-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fotki.pp.ua/year/1988/</loc>
+    <lastmod>2021-02-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fotki.pp.ua/year/1989/</loc>
+    <lastmod>2020-03-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fotki.pp.ua/year/1990/</loc>
+    <lastmod>2020-03-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fotki.pp.ua/year/1991/</loc>
+    <lastmod>2020-03-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fotki.pp.ua/year/1992/</loc>
+    <lastmod>2020-03-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fotki.pp.ua/year/1993/</loc>
+    <lastmod>2020-03-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fotki.pp.ua/year/1994/</loc>
+    <lastmod>2020-03-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fotki.pp.ua/tags/7-%D0%BD%D0%BE%D1%8F%D0%B1%D1%80%D1%8F/</loc>
     <lastmod>2021-01-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -777,11 +837,6 @@
   </url>
   
   <url>
-    <loc>https://fotki.pp.ua/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://fotki.pp.ua/photo/</loc>
     <lastmod>2021-02-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -790,6 +845,12 @@
   <url>
     <loc>https://fotki.pp.ua/tags/</loc>
     <lastmod>2021-01-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fotki.pp.ua/year/</loc>
+    <lastmod>2020-03-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
