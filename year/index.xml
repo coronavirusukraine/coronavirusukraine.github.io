@@ -6,10 +6,19 @@
     <description>Recent content in Year on Фотографии города Новомосковск</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Sun, 07 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://fotki.pp.ua/year/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>1990</title>
+      <link>https://fotki.pp.ua/year/1990/</link>
+      <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://fotki.pp.ua/year/1990/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>1988</title>
@@ -26,15 +35,6 @@
       <pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://fotki.pp.ua/year/1989/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>1990</title>
-      <link>https://fotki.pp.ua/year/1990/</link>
-      <pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://fotki.pp.ua/year/1990/</guid>
       <description></description>
     </item>
     
