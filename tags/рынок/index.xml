@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Рынок on Фотографии города Новомосковск</title>
+    <link>https://fotki.pp.ua/tags/%D1%80%D1%8B%D0%BD%D0%BE%D0%BA/</link>
+    <description>Recent content in Рынок on Фотографии города Новомосковск</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sat, 24 Jul 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://fotki.pp.ua/tags/%D1%80%D1%8B%D0%BD%D0%BE%D0%BA/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Осенний рынок</title>
+      <link>https://fotki.pp.ua/photo/photo-202/</link>
+      <pubDate>Sat, 24 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://fotki.pp.ua/photo/photo-202/</guid>
+      <description>Рыночная торговля в Новомосковске</description>
+    </item>
+    
+  </channel>
+</rss>
