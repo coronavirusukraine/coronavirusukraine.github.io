@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Фотографии города Новомосковск</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Wed, 15 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Sep 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://fotki.pp.ua/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>Зима</title>
       <link>https://fotki.pp.ua/tags/%D0%B7%D0%B8%D0%BC%D0%B0/</link>
-      <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://fotki.pp.ua/tags/%D0%B7%D0%B8%D0%BC%D0%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Собор</title>
+      <link>https://fotki.pp.ua/tags/%D1%81%D0%BE%D0%B1%D0%BE%D1%80/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://fotki.pp.ua/tags/%D1%81%D0%BE%D0%B1%D0%BE%D1%80/</guid>
       <description></description>
     </item>
     
@@ -163,15 +172,6 @@
       <pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://fotki.pp.ua/tags/%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C-%D0%BB%D0%B5%D0%BD%D0%B8%D0%BD%D0%B0/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Собор</title>
-      <link>https://fotki.pp.ua/tags/%D1%81%D0%BE%D0%B1%D0%BE%D1%80/</link>
-      <pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://fotki.pp.ua/tags/%D1%81%D0%BE%D0%B1%D0%BE%D1%80/</guid>
       <description></description>
     </item>
     
